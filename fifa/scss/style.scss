@@ -1,0 +1,509 @@
+@import "_typography.scss";
+html,body{
+    overflow:hidden;
+    //overflow-y:auto;
+    margin:0 auto;
+}
+
+header.top_header{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:40px;
+  background:#FF0903;
+  padding:0px 15px;
+  @include flex;
+  @include align-items-center;
+  color:#ffffff;
+  font-weight:700;
+  z-index:9;
+  img{
+    max-height:30px;
+    margin-right:15px;
+  }
+}
+.main_menu{
+  position:absolute;
+  top:40px;
+  left:-100%;
+  min-width:170px;
+  background:rgba(255,255,255,1);
+  z-index:9;
+  overflow-x:auto;
+  @include transition;
+  @include max-width(767px){
+    min-width:100%;
+  }
+  &.open{
+    left:0;
+  }
+  .menu_banner{
+    img{
+      width:100%;
+    }
+  }
+  ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+    li{
+      a{
+        display:block;
+        position:relative;
+        padding:10px 15px;
+        padding-left:40px;
+        border-bottom:1px solid rgba(255,255,255,0.7);
+        color:#222222;
+        @include transition;
+        font-weight:500;
+        img{
+          position:absolute;
+          top:50%;
+          left:15px;
+          height:15px;
+          margin-top:-9.5px;
+          z-index:9;
+        }
+        &:hover,&.active,&:focus{
+          background:#f2f2f2;
+          color:#000000;
+        }
+      }
+    }
+  }
+}
+/*== Login Page Css Open ==*/
+.left_add_wrapper,.right_add_wrapper{
+  float:left;
+  @include calc(width, '(100% - 767px) / 2');
+  padding:15px;
+  height:100vh;
+  @include flex;
+  @include align-items-center;
+  @include justify-content-start;
+  @include max-width(991px){
+    display:none;
+  }
+  a{
+    display:block;
+  }
+  img{
+    max-width:100%;
+    max-height:100%;
+  }
+}
+.left_add_wrapper{
+  @include justify-content-end;
+}
+.main_wrapper{
+  position:relative;
+  width:100%;
+  float:left;
+  max-width:767px;
+  height:100vh;
+  overflow:auto;
+    @include max-width(991px){
+      float:none;
+      margin:0 auto;
+    }
+}
+.bottom_banner{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  z-index:9;
+  img{
+    width:100%;
+  }
+}
+/*== Login Page Wrapper Css  ==*/
+.login_page_wrap{
+  position:relative;
+  width:100%;
+  min-height:100vh;
+  padding-top:30px;
+  padding-bottom:30px;
+  background-image:url(../img/epl-bg.jpg);
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center center;
+}
+
+.counter_wrapper{
+    position:absolute;
+    top:50%;
+    left:50%;
+    @include translate(-50%,-50%);
+    max-width:500px;
+    width:100%;
+}
+  .logo{
+    text-align:center;
+    color:#ffffff;
+    &.home_logo{
+      background:rgba(0,0,0,0.7);
+      padding:15px;
+      &>img{
+        max-height:100px;
+        width:auto;
+        margin-bottom:30px;
+      }
+    }
+    img{
+      max-height:100px;
+    }
+  }
+  .counter{
+    color:#ffffff;
+  }
+  .counter_header{
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:30px;
+  }
+  .counter_title,.counter_time{
+    font-size:18px;
+    font-weight:500;
+  }
+  .login_dialog_btn{
+    margin-top:30px;
+    width:100%;
+  }
+
+  form{
+    margin-top:30px;
+  }
+  label{
+    display:block;
+    color:#ffffff;
+    letter-spacing:1.7px;
+    margin-bottom:0;
+    text-align:left;
+  }
+  input.form-control{
+    padding-left:0;
+    padding-right:0;
+    text-align:left;
+    background:transparent;
+    border-radius:0;
+    border:none;
+    border-bottom:1px solid rgba(255,255,255,0.7);
+    color:#ffffff;
+    font-size:12px;
+    @include transition;
+    &:focus{
+      outline:none;
+      border:none;
+      border-bottom:1px solid #ffffff;
+      box-shadow:none;
+      background:transparent;
+      color:#ffffff;
+    }
+  }
+
+/*== Login Page Css Close ==*/
+.term_condition{
+  display:inline-block;
+  margin-top:15px;
+  color:#ffffff;
+  &:hover{
+    color:$brand-color;
+  }
+}
+.registeration-form{
+  text-align:left;
+}
+
+.login_dialog_btn{
+  @include flex;
+  @include align-items-center;
+  @include justify-content-center;
+  img{
+    height:18px;
+    margin:0;
+    margin-right:10px;
+  }
+}
+/*== Predict table css open ==*/
+.predict_table{
+  position:absolute;
+  left:0;
+  width:100%;
+  overflow-x:auto;
+  z-index:3;
+  padding:0px 15px;
+  padding-top:15px;
+}
+ul.predict_match{
+  margin:0;
+  padding:0;
+  list-style:none;
+  li{
+    background:rgba(0,0,0,0.7);
+    padding-left:15px;
+    padding-right:15px;
+    margin-bottom:30px;
+    border:1px solid $brand-color;
+    &:last-of-type{
+      margin-bottom:0;
+    }
+    figure{
+      margin:0;
+      width:40px;
+      height:40px;
+      @include rotate(45deg);
+      img{
+        position:absolute;
+        top:0;
+        left:0;
+        @include rotate(-45deg);
+      }
+    }
+  }
+  .match_no{
+    margin-top:-15px;
+    margin-bottom:10px;
+    span{
+      display:inline-block;
+      background:$brand-color;
+      position:relative;
+      color:#ffffff;
+      font-weight:700;
+      text-transform:uppercase;
+      font-size:18px;
+      &:before{
+        content:'';
+        position:absolute;
+        right:100%;
+        top:0;
+        border:15px solid transparent;
+        border-right:20px solid $brand-color;
+        z-index:2;
+      }
+      &:after{
+        content:'';
+        position:absolute;
+        left:100%;
+        top:0;
+        border:15px solid transparent;
+        border-left:20px solid $brand-color;
+        z-index:2;
+      }
+    }
+  }
+  .country_name{
+    @include flex;
+    @include align-items-center;
+    @include justify-content-center;
+  }
+  .home_team{
+    @include flex;
+    @include align-items-center;
+    @include justify-content-between;
+    .country_name{
+      figure{
+        img{
+          width:100%;
+          height:100%;
+        }
+      }
+      span{
+        margin-left:10px;
+      }
+    }
+  }
+
+  .score{
+    width:40px;
+    height:40px;
+    input{
+      width:40px;
+      height:40px;
+      background:rgba(255,255,255,0.8);
+      border:none;
+      color:$brand-color;
+      text-align:center;
+      line-height:40px;
+      font-size:16px;
+    }
+  }
+  .away_team{
+    @include flex;
+    @include align-items-center;
+    @include justify-content-between;
+    .country_name{
+      figure{
+        img{
+          width:40px;
+          height:40px;
+        }
+      }
+      span{
+        margin-right:10px;
+      }
+    }
+  }
+  .goal_scorer{
+    margin:10px 0px;
+    @include flex;
+    @include align-items-center;
+    @include justify-content-center;
+    label{
+      margin-right:10px;
+    }
+      input{
+        max-width:270px;
+        width:100%;
+        height:40px;
+        background:rgba(255,255,255,0.8);
+        border:none;
+        color:$brand-color;
+        text-align:center;
+        line-height:40px;
+        font-size:16px;
+      }
+  }
+}
+/*== Predict table css close ==*/
+/*== Fifa Group table css open ==*/
+ul.fifa_group{
+  margin:0;
+  padding:0;
+  list-style:none;
+  li{
+    background:rgba(0,0,0,0.7);
+    padding-left:15px;
+    padding-right:15px;
+    margin-bottom:30px;
+    border:1px solid $brand-color;
+    &:last-of-type{
+      margin-bottom:0;
+    }
+    label.country_name{
+      text-align:center;
+      margin-bottom:10px;
+    }
+    figure{
+      margin:0 auto;
+      width:40px;
+      height:40px;
+      margin-bottom:5px;
+      img{
+        width:100%;
+        height:100%;
+      }
+    }
+  }
+  .match_no{
+    margin-top:-15px;
+    margin-bottom:15px;
+    span{
+      display:inline-block;
+      background:$brand-color;
+      position:relative;
+      color:#ffffff;
+      font-weight:700;
+      text-transform:uppercase;
+      font-size:18px;
+      &:before{
+        content:'';
+        position:absolute;
+        right:100%;
+        top:0;
+        border:15px solid transparent;
+        border-right:20px solid $brand-color;
+        z-index:2;
+      }
+      &:after{
+        content:'';
+        position:absolute;
+        left:100%;
+        top:0;
+        border:15px solid transparent;
+        border-left:20px solid $brand-color;
+        z-index:2;
+      }
+    }
+  }
+}
+/*== Fifa Group table css close ==*/
+/*== Predictor Score  css open ==*/
+.leaderboard_header{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:3;
+  padding:5px 15px;
+  background:#222222;
+  color:#ffffff;
+  font-weight:600;
+  text-transform:uppercase;
+}
+.leaderboard{
+  position:absolute;
+  width:100%;
+  padding:0px 15px;
+  margin:0;
+  list-style:none;
+  left:0;
+  z-index:3;
+  overflow-x:auto;
+  background:rgba(0,0,0,0.7);
+  li{
+    border-bottom:1px solid #f2f2f2;
+    &>.row>div{
+      @include flex;
+      @include align-items-center;
+      @include justify-content-center;
+      &:first-of-type{
+        @include justify-content-start;
+      }
+    }
+    label{
+      padding:2px 0px;
+    }
+    .predictor_score{
+      text-align:center;
+      span{
+        display:inline-block;
+        background:$brand-color;
+        text-align:center;
+        padding:3px;
+      }
+    }
+  }
+}
+/*== Predictor Score  css close ==*/
+/*== Daily Winner Score  css Open ==*/
+.leaderboard.daily_winner{
+  li{
+    border-bottom:1px solid #f2f2f2;
+    &>.row>div{
+      @include flex;
+      @include align-items-center;
+      @include justify-content-center;
+      &:first-of-type{
+        @include justify-content-start;
+      }
+    }
+
+    label{
+      padding:2px 0px;
+    }
+    .match_history{
+      img{
+        width:40px;
+        height:40px;
+      }
+    }
+    .winner_type{
+      background:$brand-color;
+      text-align:center;
+      padding:5px;
+    }
+  }
+}
+/*== Daily Winner Score  css close ==*/
